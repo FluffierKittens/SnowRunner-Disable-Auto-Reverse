@@ -1,4 +1,4 @@
-﻿#include "Injector.h"
+#include "Injector.h"
 
 using namespace std;
 
@@ -91,10 +91,24 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
         gameHandle, NULL, 0, loadLibraryFunction, bufDllName, 0, NULL); //Start in the game process, no security attributes, no stack size, function to start = loadLibraryFunction, dllName is the argument, no creation flags, don't save the thread ID
 
     if (!remoteThreadHandle) {
-        SHOW_FATAL_ERROR("Failed to inject DLL")
+        SHOW_FATAL_ERROR("Failed to create remote thread")
 
         return -1;
     }
+	
+	//Wait to see how the library load goes
+	WaitForSingleObject(remoteThreadHandle, INFINITE);
+	
+	//Once it's done, check its return value
+    DWORD exitCode = 0;
+    GetExitCodeThread(remoteThreadHandle, &exitCode);
+	
+	if (exitCode == 0)
+	{
+		SHOW_FATAL_ERROR("Failed to inject DLL. Is " DAR_DLL_NAME " in the same folder as SnowRunner.exe?")
+
+        return -1;
+	}
 	
 //If there's no debug console, we at least announce success
 #ifdef DAR_NO_CONSOLE
