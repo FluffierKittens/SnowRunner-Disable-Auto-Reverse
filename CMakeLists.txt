@@ -1,6 +1,6 @@
-﻿cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.8)
 
-project (DisableAutoReverse VERSION 0.1 LANGUAGES CXX)
+project (DisableAutoReverse VERSION 0.1.2 LANGUAGES CXX)
 
 #Removing this test and trying a new combination earns you points for bravery
 if(NOT MSVC OR NOT ${MSVC_VERSION} VERSION_EQUAL 1935)
