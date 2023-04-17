@@ -47,7 +47,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("Disable Auto Reverse v0.1")
+    CONSOLE_LOG("Disable Auto Reverse v0.1.2")
 
 	//Set our hook
     DetourRestoreAfterWith();
