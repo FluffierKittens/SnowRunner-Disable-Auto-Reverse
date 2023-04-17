@@ -11,7 +11,7 @@
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION             0,1,1,0
-PRODUCTVERSION          0,1,1,0
+PRODUCTVERSION          0,1,2,0
 BEGIN
 	BLOCK "StringFileInfo"
 	BEGIN
@@ -24,7 +24,7 @@ BEGIN
 		VALUE "LegalCopyright",   "(C)2023 Ian Nickerson"
 		VALUE "OriginalFilename", "DisableAutoReverse.dll"
 		VALUE "ProductName",      "Disable Auto Reverse"
-		VALUE "ProductVersion",	  "V0.1.1"
+		VALUE "ProductVersion",	  "V0.1.2"
         END
 	END
 	BLOCK "VarFileInfo"
