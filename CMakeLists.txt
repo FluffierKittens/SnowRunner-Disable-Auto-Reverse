@@ -10,7 +10,5 @@ endif()
 #Uncomment below line to compile a version without the debug console
 #add_compile_definitions(DAR_NO_CONSOLE)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
-
 add_subdirectory(DLL)
 add_subdirectory(Injector)
