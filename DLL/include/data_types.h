@@ -190,7 +190,7 @@ public:
   char pad_0000[8]; // 0x0000
 };                  // Size: 0x0008
 
-class combine_TRUCK_CONTROL {
+class TruckControl {
 public:
   char pad_0000[8];                      // 0x0000
   class Vehicle *CurVehicle;             // 0x0008
@@ -200,7 +200,10 @@ public:
   class combine_SOUND_OBJECT *N0000094E; // 0x0080
   char pad_0088[8];                      // 0x0088
   class String *N00000950;               // 0x0090
-  char pad_0098[936];                    // 0x0098
+  char pad_0098[65];                     // 0x0098
+  ///
+  bool bFastMode;			// 0x00D9	
+  char pad_00DA[870];			// 0x00DA
 };                                       // Size: 0x0440
 
 class combine_SOUND_OBJECT {
