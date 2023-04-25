@@ -1,4 +1,4 @@
-﻿ #include "DisableAutoReverse.h"
+ #include "DisableAutoReverse.h"
 
 using namespace std;
 
@@ -47,7 +47,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("Disable Auto Reverse v0.1.2")
+    CONSOLE_LOG("Disable Auto Reverse v0.1.3")
 
 	//Set our hook
     DetourRestoreAfterWith();
@@ -82,6 +82,12 @@ bool Hook_ShiftGear(Vehicle* veh, int32_t gear)
                 CONSOLE_LOG("Blocking auto reverse while shifting R -> A.")
                 return ShiftGear(veh, 1);
             }
+			//Not sure how the TruckControl pointer could be null at this point, but safety first
+			else if ((*ppTruckControl != nullptr) && (((TruckControl *)(*ppTruckControl))->bFastMode))
+			{
+				CONSOLE_LOG("Allowing auto reverse while in fast mode.")
+				return ShiftGear(veh, gear);
+			}
             else //In all other cases, the game is trying to trick you into driving off a cliff
             {
 				//Don't spam with messages
