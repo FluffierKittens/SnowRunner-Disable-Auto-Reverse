@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <windows.h>
 #include <cstdio>
@@ -31,7 +31,11 @@ template <typename T> inline T* GetPtrToOffset(int64_t offset) {
 //Defines the function Name as a pointer to the original Snowrunner function, and
 //Defines the function Hook_Name as our hook for that function
 #define DAR_GAME_FUNCTION(Offset, R, Name, ...)						\
-	auto *Name = GetPtrToOffset<R(__VA_ARGS__)>(Offset);		\
+	inline auto *Name = GetPtrToOffset<R(__VA_ARGS__)>(Offset);		\
 	R Hook_##Name(__VA_ARGS__);
 
 DAR_GAME_FUNCTION(0xd4d420, bool, ShiftGear, Vehicle*, int32_t)
+
+#define DAR_DECLARE_PTR(Offset, T, Name)                                      \
+    inline auto *Name = GetPtrToOffset<T>(Offset)
+DAR_DECLARE_PTR(0x2e7c508, TruckControl*, ppTruckControl);
