@@ -1,3 +1,9 @@
+# ⛔️ DEPRECATED ⛔️
+
+This mod is no longer being updated/maintained. All features (and more) are available in [SnowRunner-UI-Changes](https://github.com/FluffierKittens/SnowRunner-UI-Changes).
+
+The code in this repository is only compatible with SnowRunner.exe version 1.188853.SNOW_DLC9
+
 # Disable AUTO REVERSE for SnowRunner
 A mod to do nothing more than disable AUTO REVERSE. The only way to reverse is now with the dedicated R gear.
 
